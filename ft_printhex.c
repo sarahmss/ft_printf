@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:23:45 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/02 10:12:43 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/02 10:52:49 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static char	*ft_sup(char *temp, t_format *tab)
 {
 	char	*stemp;
 
+	stemp = NULL;
 	if (*temp == 'X')
 		stemp = ft_itoa_bases(va_arg(tab->args, unsigned int), 16, 'X');
 	else if (*temp == 'x')
