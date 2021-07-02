@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 17:02:23 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/02 11:14:48 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/02 11:16:40 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_main_printf(char *str, t_format *tab)
 	{
 		tab->printed += ft_putstr_fd(str, 1);
 		return (tab->printed);
+		free (temp);
 	}
 	temp = ft_strcdup(str, '%');
 	if (!temp)
