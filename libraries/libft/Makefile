@@ -39,6 +39,7 @@ SRCS	=	ft_bzero.c		\
 		ft_putnbruns_fd.c	\
 		ft_intlen.c			\
 		ft_itoa_bases.c		\
+		ft_strchr2.c		\
 
 SRCS_B = ft_lstnew.c		\
 		ft_lstadd_front.c	\

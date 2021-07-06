@@ -129,4 +129,6 @@ int		ft_numblen(long numb, int base);
 
 char	*ft_itoa_bases(long long value, int base, char x);
 
+char	*ft_strchr2(const char *str, int c, int c2);
+
 #endif

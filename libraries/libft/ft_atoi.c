@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 23:42:26 by smodesto          #+#    #+#             */
-/*   Updated: 2021/06/01 15:06:14 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/06 10:07:48 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,24 @@ int	ft_atoi(const char *str)
 	int	i;
 	int	sign;
 	int	result;
+	char	*str1;
 
 	sign = 1;
 	i = 0;
 	result = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\f'
-		|| str[i] == '\r' || str[i] == '\n' || str[i] == '\v')
+	str1 = (char *)str;
+	while (str1[i] == ' ' || str1[i] == '\t' || str1[i] == '\f'
+		|| str1[i] == '\r' || str1[i] == '\n' || str1[i] == '\v')
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (str1[i] == '-' || str1[i] == '+')
 	{
-		if (str[i] == '-')
+		if (str1[i] == '-')
 			sign *= -1;
 		i++;
 	}
-	while (48 <= str[i] && str[i] <= 57)
+	while (48 <= str1[i] && str1[i] <= 57)
 	{
-		result = result * 10 + (str[i] - '0');
+		result = result * 10 + (str1[i] - '0');
 		i++;
 	}
 	return (sign * result);
