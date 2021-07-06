@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 13:41:53 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/02 10:09:30 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/06 10:11:11 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 t_format	*ft_initialise_tab(t_format *tab)
 {
 	tab->temp = NULL;
-	tab->width = 0; //we set everything to 0, false
+	tab->width = 0;
 	tab->precision = 0;
 	tab->l_just = 0;
 	tab->pad_zero = 0;

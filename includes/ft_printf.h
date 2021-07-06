@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 17:03:47 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/01 18:55:24 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/02 11:21:41 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <stdio.h>
 # include "../libraries/libft/libft.h"
 
 typedef struct s_format

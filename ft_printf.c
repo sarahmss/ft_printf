@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 17:02:23 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/02 11:16:40 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/06 10:09:56 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	ft_main_printf(char *str, t_format *tab)
 	{
 		tab->printed += ft_putstr_fd(str, 1);
 		return (tab->printed);
-		free (temp);
 	}
 	temp = ft_strcdup(str, '%');
 	if (!temp)
@@ -36,12 +35,14 @@ int	ft_main_printf(char *str, t_format *tab)
 int	ft_printf(const char *format, ...)
 {
 	t_format	*tab;
+	int			printed;
 
 	tab = (t_format *)malloc(sizeof(t_format));
 	if (!tab)
 		return (-1);
 	ft_initialise_tab(tab);
 	va_start(tab->args, format);
-	tab->printed = ft_main_printf((char *)format, tab);
-	return (tab->printed);
+	printed = ft_main_printf((char *)format, tab);
+	free(tab);
+	return (printed);
 }
