@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 16:50:49 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/02 10:06:24 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/06 15:35:59 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_flags(t_format *tab)
 	int	print;
 
 	prec = tab->precision;
-	if ((tab->width == 1 || tab->width_prm[0] > 0) && (tab->pad_zero == 0))
+	if ((tab->width == 1 || tab->width_prm[0] != 0) && (tab->pad_zero == 0))
 		ft_width(tab);
 	if (tab->pad_zero == 1 && tab->l_just == 0)
 		ft_padzero(tab);
@@ -32,8 +32,12 @@ static int	ft_sup(t_format *tab, char *stemp, int i)
 {
 	char	width[10];
 
-	if (tab->width_prm[0] > 0)
+	if (tab->width_prm[0] != 0)
+	{
 		i = tab->width_prm[0];
+		if (i < 0)
+			i *= -1;
+	}
 	else
 	{
 		while (ft_isdigit(*stemp) || *stemp == '-')
