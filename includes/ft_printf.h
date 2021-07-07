@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 17:03:47 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/02 11:21:41 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/07 19:58:40 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,10 @@ void		ft_flags(t_format *tab);
 
 void		ft_width(t_format *tab);
 
-int			ft_widthparam(t_format *tab);
+int			ft_prm(t_format *tab, char *stemp);
 
 void		ft_padzero(t_format *tab);
 
 int			ft_precision(t_format *tab);
+
 #endif

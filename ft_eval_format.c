@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 13:41:53 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/06 14:59:18 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/07 19:58:10 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_format	*ft_initialise_tab(t_format *tab)
 	tab->l_just = 0;
 	tab->pad_zero = 0;
 	tab->width_prm[0] = 0;
-	tab->width_prm[1] = -1;
+	tab->width_prm[1] = 0;
 	tab->printed = 0;
 	tab->str = 0;
 	tab->ch = 0;
@@ -61,14 +61,8 @@ char	*ft_eval_format(char *temp, t_format *tab)
 		&& *temp != 'd' && *temp != 'i' && *temp != 'u'
 		&& *temp != 'p' && *temp != 'x' && *temp != 'X')
 	{
-		if ((*temp == '*') && (tab->width_prm[1] == -1))
-		{
-			tab->width_prm[0] = va_arg(tab->args, int);
-			if (tab->width_prm[0] < 0)
-				tab->l_just = 1;
-			if (ft_strchr(temp, '*'))
-				tab->width_prm[1] = 0;
-		}
+		if (*temp == '*')
+			ft_prm(tab, temp);
 		if (*temp == '0' && tab->width == 0 && tab->l_just == 0)
 			tab->pad_zero = 1;
 		if (ft_isdigit(*temp) && tab->precision == 0 && tab->pad_zero == 0)

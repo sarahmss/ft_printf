@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 16:50:49 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/06 15:35:59 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/07 19:59:21 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,8 @@ static int	ft_sup(t_format *tab, char *stemp, int i)
 {
 	char	width[10];
 
-	if (tab->width_prm[0] != 0)
-	{
+	if (tab->width_prm[1] != 0)
 		i = tab->width_prm[0];
-		if (i < 0)
-			i *= -1;
-	}
 	else
 	{
 		while (ft_isdigit(*stemp) || *stemp == '-')
@@ -85,4 +81,19 @@ void	ft_padzero(t_format *tab)
 		tab->printed += ft_putchar_fd('-', 1);
 	while (i-- > 0)
 		tab->printed += ft_putchar_fd('0', 1);
+}
+
+int	ft_prm(t_format *tab, char *stemp)
+{
+	stemp++;
+	if(*stemp == '.')
+		tab->width_prm[0] = va_arg(tab->args, int);
+	else
+		tab->width_prm[1] = va_arg(tab->args, int);
+	if (tab->width_prm[1] < 0)
+	{
+		tab->l_just = 1;
+		tab->width_prm[0] *= -1;
+	}
+	return (0);
 }
