@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 10:17:56 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/08 09:55:06 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/08 10:11:56 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_putnstr_fd(char *s, int fd, int n)
 
 	cont = 0;
 	printed = 0;
-	if (n == 0)
+	if (n == -1)
 		return(printed);
 	if (n > 0)
 		while (s[cont] != '\0' && n-- > 0)
