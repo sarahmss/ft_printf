@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 16:50:49 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/08 09:50:54 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/08 10:03:12 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ int	ft_widthparam(t_format *tab, char *stemp)
 		tab->width_prm[0] *= -1;
 	}
 	tab->width_prm[1] = 0;
+	stemp++;
 	return (0);
 }
