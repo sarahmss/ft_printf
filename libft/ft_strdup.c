@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/12 23:42:26 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/06 10:07:48 by smodesto         ###   ########.fr       */
+/*   Created: 2021/05/16 20:46:42 by smodesto          #+#    #+#             */
+/*   Updated: 2021/05/25 15:29:40 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+char	*ft_strdup(const char *src)
 {
-	int	i;
-	int	sign;
-	int	result;
-	char	*str1;
+	char	*new_str;
+	int		i;
+	int		src_len;
 
-	sign = 1;
+	src_len = 0;
+	while (src[src_len] != '\0')
+		src_len++;
+	new_str = malloc((sizeof (char)) * src_len + 1 );
+	if (new_str == NULL)
+		return (NULL);
 	i = 0;
-	result = 0;
-	str1 = (char *)str;
-	while (str1[i] == ' ' || str1[i] == '\t' || str1[i] == '\f'
-		|| str1[i] == '\r' || str1[i] == '\n' || str1[i] == '\v')
-		i++;
-	if (str1[i] == '-' || str1[i] == '+')
+	while (src[i])
 	{
-		if (str1[i] == '-')
-			sign *= -1;
+		new_str[i] = src[i];
 		i++;
 	}
-	while (48 <= str1[i] && str1[i] <= 57)
-	{
-		result = result * 10 + (str1[i] - '0');
-		i++;
-	}
-	return (sign * result);
+	new_str[i] = '\0';
+	return (new_str);
 }

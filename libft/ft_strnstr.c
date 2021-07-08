@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/12 23:42:26 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/06 10:07:48 by smodesto         ###   ########.fr       */
+/*   Created: 2021/05/16 19:39:59 by smodesto          #+#    #+#             */
+/*   Updated: 2021/05/27 20:04:22 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	int	i;
-	int	sign;
-	int	result;
-	char	*str1;
+	size_t	i;
+	size_t	j;
+	size_t	len_to_find;
 
-	sign = 1;
+	len_to_find = ft_strlen(to_find);
 	i = 0;
-	result = 0;
-	str1 = (char *)str;
-	while (str1[i] == ' ' || str1[i] == '\t' || str1[i] == '\f'
-		|| str1[i] == '\r' || str1[i] == '\n' || str1[i] == '\v')
-		i++;
-	if (str1[i] == '-' || str1[i] == '+')
+	if (len_to_find == 0 || to_find[i] == '\0')
+		return ((char *)str);
+	while (str[i] != '\0' && i < len)
 	{
-		if (str1[i] == '-')
-			sign *= -1;
+		j = 0;
+		while (str[i + j] != '\0' && str[i + j] == to_find[j] && i + j < len)
+		{
+			if (to_find[j + 1] == '\0')
+				return ((char *)&str[i]);
+			j++;
+		}
 		i++;
 	}
-	while (48 <= str1[i] && str1[i] <= 57)
-	{
-		result = result * 10 + (str1[i] - '0');
-		i++;
-	}
-	return (sign * result);
+	return (NULL);
 }
