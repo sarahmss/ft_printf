@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 09:24:29 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/06 20:04:04 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/08 09:52:36 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ int	ft_precision(t_format *tab)
 	stemp = tab->temp;
 	i = 0;
 	stemp++;
-	if (tab->width_prm[0] > 0 && ft_strchr2(stemp, '.', '*'))
-		i = tab->width_prm[0];
-	else if (tab->width_prm[1] == 0 && ft_strchr2(stemp, '.', '*'))
+	if (*stemp == '*')
 		i = va_arg(tab->args, int);
 	else
 	{
