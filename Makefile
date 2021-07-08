@@ -16,6 +16,7 @@ SRCS =	ft_printf.c				\
 		ft_printhex.c			\
 		ft_flags.c				\
 		ft_precision.c			\
+		ft_width.c				\
 
 SRCS_OBJS = $(SRCS:.c=.o)
 
