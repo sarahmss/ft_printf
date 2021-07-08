@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 16:50:49 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/08 08:46:13 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/08 08:50:28 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,15 @@ void	ft_padzero(t_format *tab)
 
 int	ft_prm(t_format *tab, char *stemp)
 {
+	char *temp;
+
+	temp = stemp;
+	temp++;
+	if (*temp == '.')
+		tab->width_prm[1] = va_arg(tab->args, int);
+	else
 		tab->width_prm[0] = va_arg(tab->args, int);
 	if (tab->width_prm[0] < 0)
 		tab->l_just = 1;
-	if (ft_strchr(stemp, '*'))
-		tab->width_prm[1] = 0;
 	return (0);
 }
