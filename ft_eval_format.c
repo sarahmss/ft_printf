@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 13:41:53 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/08 11:16:29 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/09 10:56:17 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ char	*ft_eval_format(char *temp, t_format *tab)
 		&& *temp != 'd' && *temp != 'i' && *temp != 'u'
 		&& *temp != 'p' && *temp != 'x' && *temp != 'X')
 	{
-		if ((*temp == '*') && (tab->width_prm[1] == -1))
+		if ((*temp == '*') && (tab->width_prm[1] == -1)
+			&& (tab->precision != -2))
 			ft_widthparam(tab, temp);
 		if ((*temp == '0') && (tab->width == 0) && (tab->l_just == 0)
 			&& (tab->precision != -1))
