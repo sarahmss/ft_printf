@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 23:22:46 by smodesto          #+#    #+#             */
-/*   Updated: 2021/05/19 20:39:01 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/09 10:34:37 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int	ft_strlen(const char *str)
 	int	len;
 
 	len = 0;
-	while (str[len] != '\0')
-		len++;
+	if (str != NULL)
+	{
+		while (str[len] != '\0')
+			len++;
+	}
 	return (len);
 }
