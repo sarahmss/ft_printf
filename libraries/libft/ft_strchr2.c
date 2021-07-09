@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 19:12:47 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/06 19:36:05 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/09 16:20:40 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ char	*ft_strchr2(const char *str, int c, int c2)
 		if (*str_f == c)
 		{
 			str_f++;
-			if(*str_f == c2)
+			if (*str_f == c2)
 				return (str_f);
 		}
-
 		if (!ft_isascii(*str_f))
 			return (NULL);
 	}
