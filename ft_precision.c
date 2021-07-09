@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 09:24:29 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/08 11:38:15 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/09 10:47:45 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	ft_precision(t_format *tab)
 		i = va_arg(tab->args, int);
 		if (i == 0)
 			i = -1;
+		if (i < 0)
+			i = 0;
 	}
 	else if (!ft_isdigit(*stemp))
 		return (i);
