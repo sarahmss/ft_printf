@@ -1,2 +1,0 @@
-gcc -Wall -Werror -Wextra -g -static main.c -L./../ -lftprintf && ./a.out
-valgrind --track-origins=yes --leak-check=full ./a.out
