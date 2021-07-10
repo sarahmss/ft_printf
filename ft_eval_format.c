@@ -6,14 +6,11 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 13:41:53 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/09 10:56:17 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/10 18:12:13 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/ft_printf.h"
-
-/*see what we have between % and the specifier, setting the flags
- temp = pointer to %, tab == t_format to set*/
 
 t_format	*ft_initialise_tab(t_format *tab)
 {
@@ -40,11 +37,7 @@ static int	ft_eval_sup(char *temp, t_format *tab)
 		ft_printchar(tab);
 	if (*temp == '%')
 		tab->printed += ft_putchar_fd('%', 1);
-	if (*temp == 'i')
-		ft_printint(temp, tab);
-	if (*temp == 'd')
-		ft_printint(temp, tab);
-	if (*temp == 'u')
+	if ((*temp == 'i') || (*temp == 'd') || (*temp == 'u'))
 		ft_printint(temp, tab);
 	if ((*temp == 'p') || (*temp == 'X') || (*temp == 'x'))
 		ft_printhex(temp, tab);

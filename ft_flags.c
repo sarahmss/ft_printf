@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 16:50:49 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/08 11:32:10 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/10 18:13:09 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	ft_flags(t_format *tab)
 	tab->printed = print;
 }
 
-//width_prm[1] : only check if it is the first *
 int	ft_widthparam(t_format *tab, char *stemp)
 {
 	tab->width_prm[0] = va_arg(tab->args, int);
