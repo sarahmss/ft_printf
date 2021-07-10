@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:23:45 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/06 10:16:12 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/10 17:17:59 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ void	ft_printhex(char *temp, t_format *tab)
 	if (tab->l_just == 0)
 	{
 		if (*temp == 'p')
-			tab->hex += 2;
-		ft_flags(tab);
+			ft_flags(tab);
 		if (*temp == 'p')
 			tab->printed += ft_putstr_fd("0x", 1);
 		tab->printed += ft_putstr_fd(stemp, 1);
