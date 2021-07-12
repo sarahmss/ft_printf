@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 11:25:57 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/12 10:58:37 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/12 11:25:20 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	ft_padzero(t_format *tab)
 	stemp++;
 	if ((tab->in && tab->ch < 0))
 		tab->printed += ft_putchar_fd('-', 1);
-	if ((tab->precision > 0) && (tab->ch > 0))
+	if ((tab->precision > 0) && (tab->ch >= 0))
 		i = tab->precision - tab->in;
 	else if ((tab->precision > 0) && (tab->ch < 0))
 		i = tab->precision - tab->in + 1;
