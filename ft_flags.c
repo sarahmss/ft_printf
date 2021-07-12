@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 16:50:49 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/10 18:13:09 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/12 10:44:22 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	ft_flags(t_format *tab)
 	prec = tab->precision;
 	if ((tab->width == 1 || tab->width_prm[0] != 0) && (tab->pad_zero == 0))
 		ft_width(tab);
-	if (tab->pad_zero == 1 && tab->l_just == 0)
+	if (((tab->pad_zero == 1) || ((tab->precision) && (tab->in)))
+		&& (tab->l_just == 0))
 		ft_padzero(tab);
 	print = tab->printed;
 	ft_initialise_tab(tab);

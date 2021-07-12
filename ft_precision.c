@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 09:24:29 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/09 10:55:34 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/10 20:26:39 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,14 @@ int	ft_precision(t_format *tab)
 	else
 		i = ft_sup(stemp);
 	return (i);
+}
+
+int	ft_intprecision(t_format *tab, int neg)
+{
+	int	i;
+
+	i = tab->precision - neg;
+	while (i-- > 0)
+		tab->printed += ft_putchar_fd('0', 1);
+	return (tab->precision - neg);
 }

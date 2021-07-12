@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 13:41:53 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/10 18:12:13 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/12 10:50:56 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,13 @@ static int	ft_eval_sup(char *temp, t_format *tab)
 		ft_printchar(tab);
 	if (*temp == '%')
 		tab->printed += ft_putchar_fd('%', 1);
-	if ((*temp == 'i') || (*temp == 'd') || (*temp == 'u'))
+	if ((*temp == 'i') || (*temp == 'd'))
+	{
+		if (tab->precision)
+			tab->pad_zero = 0;
+		ft_printint(temp, tab);
+	}
+	if (*temp == 'u')
 		ft_printint(temp, tab);
 	if ((*temp == 'p') || (*temp == 'X') || (*temp == 'x'))
 		ft_printhex(temp, tab);
@@ -60,7 +66,7 @@ char	*ft_eval_format(char *temp, t_format *tab)
 		if ((*temp == '0') && (tab->width == 0) && (tab->l_just == 0)
 			&& (tab->precision != -1))
 			tab->pad_zero = 1;
-		if (ft_isdigit(*temp) && tab->precision == 0 && tab->pad_zero == 0)
+		if (ft_isdigit(*temp) && tab->precision == 0 && *temp != '0')
 			tab->width = 1;
 		if (*temp == '.')
 			tab->precision = ft_precision(tab);
