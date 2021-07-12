@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:26:48 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/12 12:46:37 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/12 13:18:35 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,18 @@ static int	ft_li_flags(t_format *tab, int i)
 	return (0);
 }
 
-static void	ft_intsup(t_format *tab, long num, char *temp)
+static long	ft_intsup(t_format *tab, char *temp)
 {
-	ft_flags(tab);
+	long	num;
+
+	num = va_arg(tab->args, int);
+	tab->ch = num;
+	tab->in = ft_intlen(num);
+	if ((num < 0) && ((tab->precision > (tab->in - 1)) || tab->pad_zero))
+		num *= -1;
 	if (*temp == 'u')
-		tab->printed += ft_putnbruns_fd(num, 1);
-	else
-		tab->printed += ft_putnbr_fd(num, 1);
+		tab->str = 1;
+	return (num);
 }
 
 void	ft_printint(char *temp, t_format *tab)
@@ -46,13 +51,15 @@ void	ft_printint(char *temp, t_format *tab)
 	int		i;
 
 	i = 0;
-	num = va_arg(tab->args, int);
-	tab->ch = num;
-	tab->in = ft_intlen(num);
-	if ((num < 0) && ((tab->precision > (tab->in - 1)) || tab->pad_zero))
-		num *= -1;
+	num = ft_intsup(tab, temp);
 	if (tab->l_just == 0)
-		ft_intsup(tab, num, temp);
+	{
+		ft_flags(tab);
+		if (*temp == 'u')
+			tab->printed += ft_putnbruns_fd(num, 1);
+		else
+			tab->printed += ft_putnbr_fd(num, 1);
+	}
 	if (tab->l_just == 1)
 	{
 		i = ft_li_flags(tab, i);
