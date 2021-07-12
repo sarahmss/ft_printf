@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:26:48 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/12 13:29:00 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/12 13:34:12 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,10 @@ static long	ft_intsup(t_format *tab, char *temp)
 	num = va_arg(tab->args, int);
 	tab->ch = num;
 	tab->in = ft_intlen(num);
-	if (*temp == 'u')
-		{
-			num *= -1;
-			tab->ch = num;
-		}
-	else if ((num < 0) && ((tab->precision > (tab->in - 1)) || tab->pad_zero))
+	if ((num < 0) && ((tab->precision > (tab->in - 1)) || tab->pad_zero))
 		num *= -1;
+	if (*temp == 'u')
+		tab->ch = num;
 	return (num);
 }
 
