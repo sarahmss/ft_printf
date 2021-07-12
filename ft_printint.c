@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:26:48 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/12 13:18:35 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/12 13:25:46 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ static long	ft_intsup(t_format *tab, char *temp)
 	tab->in = ft_intlen(num);
 	if ((num < 0) && ((tab->precision > (tab->in - 1)) || tab->pad_zero))
 		num *= -1;
-	if (*temp == 'u')
-		tab->str = 1;
+	if (*temp == 'u' && (num < 0))
+		tab->ch = num;
 	return (num);
 }
 
