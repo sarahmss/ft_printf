@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 17:03:47 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/12 17:38:47 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/12 18:08:42 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct s_format
 {
-	va_list		args;
+	va_list	args;
 	char		*temp;
 	int			width;
 	int			precision;
@@ -58,5 +58,11 @@ int			ft_widthparam(t_format *tab, char *stemp);
 void		ft_padzero(t_format *tab);
 
 int			ft_precision(t_format *tab);
+
+int			ft_intprecision(t_format *tab, int neg);
+
+int			ft_findsize(t_format *tab, char *stemp, int i);
+
+int			ft_findsize1(t_format *tab, int i);
 
 #endif
