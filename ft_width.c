@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 11:25:57 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/12 11:25:20 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/12 11:28:46 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_sup2(t_format *tab, int i)
 			i = i - tab->ch;
 		if ((tab->precision > (tab->in - 1)) && (tab->ch < 0))
 			i = i - (tab->precision + 1);
-		else if ((tab->precision > tab->in) && (tab->ch > 0))
+		else if ((tab->precision > tab->in) && (tab->ch >= 0))
 			i = i - tab->precision;
 		else if (tab->in > 0)
 			i = i - tab->in;
