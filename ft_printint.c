@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:26:48 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/12 13:34:12 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/12 17:29:33 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,23 @@ static int	ft_li_flags(t_format *tab, int i)
 
 static long	ft_intsup(t_format *tab, char *temp)
 {
-	long	num;
+	long int	num;
 
-	num = va_arg(tab->args, int);
-	tab->ch = num;
+	if (*temp == 'u')
+		num = va_arg(tab->args, unsigned int);
+	else
+		num = va_arg(tab->args, int);
+	tab->num = num;
 	tab->in = ft_intlen(num);
 	if ((num < 0) && ((tab->precision > (tab->in - 1)) || tab->pad_zero))
 		num *= -1;
-	if (*temp == 'u')
-		tab->ch = num;
 	return (num);
 }
 
 void	ft_printint(char *temp, t_format *tab)
 {
-	long	num;
-	int		i;
+	long int	num;
+	int			i;
 
 	i = 0;
 	num = ft_intsup(tab, temp);

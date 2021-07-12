@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 11:25:57 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/12 13:26:11 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/12 17:31:36 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static int	ft_sup2(t_format *tab, int i)
 		i = i - tab->precision;
 	else if ((tab->str > 0) && (tab->precision != -1))
 		i = i - tab->str;
-	if ((tab->ch > 0) && (tab->in == 0))
+	if ((tab->ch > 0))
 		i = i - tab->ch;
-	if ((tab->in) && (tab->precision > (tab->in - 1)) && (tab->ch < 0)
+	if ((tab->in) && (tab->precision > (tab->in - 1)) && (tab->num < 0)
 		&& (tab->precision != -1))
 		i = i - (tab->precision + 1);
-	else if ((tab->in) && (tab->precision > tab->in) && (tab->ch >= 0)
+	else if ((tab->in) && (tab->precision > tab->in) && (tab->num >= 0)
 		&& (tab->precision != -1))
 		i = i - tab->precision;
 	else if (tab->in > 0)
@@ -78,11 +78,11 @@ void	ft_padzero(t_format *tab)
 	stemp = tab->temp;
 	i = 0;
 	stemp++;
-	if (((tab->in) && (tab->ch < 0)))
+	if (((tab->in) && (tab->num < 0)))
 		tab->printed += ft_putchar_fd('-', 1);
-	if ((tab->precision > 0) && (tab->ch >= 0))
+	if ((tab->precision > 0) && (tab->num >= 0))
 		i = tab->precision - tab->in;
-	else if ((tab->precision > 0) && (tab->ch < 0))
+	else if ((tab->precision > 0) && (tab->num < 0))
 		i = tab->precision - tab->in + 1;
 	else
 		i = ft_sup(tab, stemp, i);
