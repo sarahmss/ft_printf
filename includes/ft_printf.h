@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 17:03:47 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 10:01:52 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 10:06:08 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct s_format
 {
-	va_list	args;
+	va_list		args;
 	char		*temp;
 	int			width;
 	int			precision;

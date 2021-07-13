@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 16:50:49 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 09:47:13 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 10:07:00 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ static int	ft_findsize3(t_format *tab, int i)
 {
 	if (tab->precision != -1)
 	{
-	if ((tab->hex) && (tab->precision > (tab->hex - 1)) && (tab->num < 0))
-		i = i - (tab->precision + 1);
-	else if ((tab->hex) && (tab->precision > tab->hex) && (tab->num >= 0))
-		i = i - tab->precision;
-	if (tab->hex > 0)
-		i = i - tab->hex;
+		if ((tab->hex) && (tab->precision > (tab->hex - 1)) && (tab->num < 0))
+			i = i - (tab->precision + 1);
+		else if ((tab->hex) && (tab->precision > tab->hex) && (tab->num >= 0))
+			i = i - tab->precision;
+		if (tab->hex > 0)
+			i = i - tab->hex;
 	}
 	return (i);
 }
@@ -84,4 +84,3 @@ int	ft_findsize(t_format *tab, char *stemp, int i)
 	i = ft_findsize1(tab, i);
 	return (i);
 }
-
