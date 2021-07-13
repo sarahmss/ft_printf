@@ -6,13 +6,13 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 08:56:48 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/01 20:33:34 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 20:53:40 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	aux(t_conversion *conv, long long value, int base, char x)
+static void	aux(t_conversion *conv, long long int value, int base, char x)
 {
 	if (x == 'X')
 		conv->hex = "0123456789ABCDEF";
@@ -30,7 +30,7 @@ static void	aux(t_conversion *conv, long long value, int base, char x)
 	}
 }
 
-char	*ft_itoa_bases(long long value, int base, char x)
+char	*ft_itoa_bases(long long int value, int base, char x)
 {
 	t_conversion	conv;
 
