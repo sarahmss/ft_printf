@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:26:48 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 12:02:41 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 12:18:15 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ int	ft_printint(char *temp, t_format *tab)
 		if (i == 1)
 			i = ft_li_flags(tab, i);
 	}
+	tab->precision = 0;
 	return (0);
 }
