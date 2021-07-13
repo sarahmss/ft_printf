@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 16:50:49 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 09:13:31 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 09:34:13 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,34 +31,35 @@ void	ft_flags(t_format *tab)
 
 static int	ft_findsize3(t_format *tab, int i)
 {
-	if ((tab->hex) && (tab->precision > (tab->hex - 1)) && (tab->num < 0)
-		&& (tab->precision != -1))
+	if (tab->precision != -1)
+	{
+	if ((tab->hex) && (tab->precision > (tab->hex - 1)) && (tab->num < 0))
 		i = i - (tab->precision + 1);
-	else if ((tab->hex) && (tab->precision > tab->hex) && (tab->num >= 0)
-		&& (tab->precision != -1))
+	else if ((tab->hex) && (tab->precision > tab->hex) && (tab->num >= 0))
 		i = i - tab->precision;
 	if (tab->hex > 0)
 		i = i - tab->hex;
+	}
 	return (i);
 }
 
 int	ft_findsize1(t_format *tab, int i)
 {
-	if ((tab->precision > 0) && (tab->str > tab->precision)
-		&& (tab->precision != -1))
-		i = i - tab->precision;
-	else if ((tab->str > 0) && (tab->precision != -1))
-		i = i - tab->str;
+	if (tab->precision != -1)
+	{
+		if ((tab->precision > 0) && (tab->str > tab->precision))
+			i = i - tab->precision;
+		else if ((tab->str > 0))
+			i = i - tab->str;
+		if ((tab->in) && (tab->precision > (tab->in - 1)) && (tab->num < 0))
+			i = i - (tab->precision + 1);
+		else if ((tab->in) && (tab->precision > tab->in) && (tab->num >= 0))
+			i = i - tab->precision;
+		else if ((tab->in > 0))
+			i = i - tab->in;
+	}
 	if ((tab->ch > 0))
 		i = i - tab->ch;
-	if ((tab->in) && (tab->precision > (tab->in - 1)) && (tab->num < 0)
-		&& (tab->precision != -1))
-		i = i - (tab->precision + 1);
-	else if ((tab->in) && (tab->precision > tab->in) && (tab->num >= 0)
-		&& (tab->precision != -1))
-		i = i - tab->precision;
-	else if (tab->in > 0)
-		i = i - tab->in;
 	i = ft_findsize3(tab, i);
 	return (i);
 }

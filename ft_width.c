@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 11:25:57 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/12 18:09:51 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 09:22:49 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,11 @@ void	ft_width(t_format *tab)
 {
 	int		i;
 	char	*stemp;
-	char	c;
 
-	c = ' ';
 	stemp = tab->temp;
 	i = 0;
 	stemp++;
 	i = ft_findsize(tab, stemp, i);
 	while (i-- > 0)
-		tab->printed += ft_putchar_fd(c, 1);
+		tab->printed += ft_putchar_fd(' ', 1);
 }
