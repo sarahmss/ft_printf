@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:26:48 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 10:13:01 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 10:16:08 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	ft_printint(char *temp, t_format *tab)
 	{
 		ft_flags(tab);
 		if ((num == 0) && (tab->precision == -1))
-			ft_putchar_fd(' ', 1);
+			tab->printed += ft_putchar_fd(' ', 1);
 		else if (*temp == 'u')
 			tab->printed += ft_putnbruns_fd(num, 1);
 		else
@@ -67,7 +67,7 @@ int	ft_printint(char *temp, t_format *tab)
 	{
 		i = ft_li_flags(tab, i);
 		if ((num == 0) && (tab->precision == -1))
-			ft_putchar_fd(' ', 1);
+			tab->printed += ft_putchar_fd(' ', 1);
 		else if (*temp == 'u')
 			tab->printed += ft_putnbruns_fd(num, 1);
 		else
