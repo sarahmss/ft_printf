@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:26:48 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 09:54:17 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 10:02:35 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static long	ft_intsup(t_format *tab, char *temp)
 	return (num);
 }
 
-void	ft_printint(char *temp, t_format *tab)
+int	ft_printint(char *temp, t_format *tab)
 {
 	long int	num;
 	int			i;
@@ -56,20 +56,24 @@ void	ft_printint(char *temp, t_format *tab)
 	if (tab->l_just == 0)
 	{
 		ft_flags(tab);
-		if ((*temp == 'u') && (tab->precision != -1) && (num != 0))
+		if ((tab->precision == -1) && (num == 0))
+			return (0);
+		if (*temp == 'u')
 			tab->printed += ft_putnbruns_fd(num, 1);
-		else if ((tab->precision != -1) && (num != 0))
+		else
 			tab->printed += ft_putnbr_fd(num, 1);
 	}
 	if (tab->l_just == 1)
 	{
 		i = ft_li_flags(tab, i);
-		if ((*temp == 'u') && (tab->precision != -1) && (num != 0))
+		if ((tab->precision == -1) && (num == 0))
+			i = ft_li_flags(tab, i);
+		if (*temp == 'u')
 			tab->printed += ft_putnbruns_fd(num, 1);
-		else if ((tab->precision != -1) && (num != 0))
+		else
 			tab->printed += ft_putnbr_fd(num, 1);
 		if (i == 1)
 			i = ft_li_flags(tab, i);
 	}
-	tab->precision = 0;
+	return (0);
 }
