@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:23:45 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 19:52:02 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 20:32:04 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ static char	*ft_catstr(char *temp, t_format *tab)
 	stemp = NULL;
 	if ((tab->precision) || (tab->l_just))
 		tab->pad_zero = 0;
-	tab->num = va_arg(tab->args, unsigned int);
+	if (*temp == 'p')
+		tab->num = va_arg(tab->args, unsigned long int);
+	else
+		tab->num = va_arg(tab->args, unsigned int);
 	if (*temp == 'X')
 		stemp = ft_itoa_bases(tab->num, 16, 'X');
 	else if (*temp == 'x')
