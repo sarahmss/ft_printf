@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 16:50:49 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 09:34:13 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 09:40:47 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,11 @@ int	ft_findsize1(t_format *tab, int i)
 			i = i - (tab->precision + 1);
 		else if ((tab->in) && (tab->precision > tab->in) && (tab->num >= 0))
 			i = i - tab->precision;
-		else if ((tab->in > 0))
+		else if ((tab->in > 0) && (tab->num >= 0))
 			i = i - tab->in;
 	}
+	if ((tab->in > 0) && (tab->num < 0))
+		i = i - tab->in;
 	if ((tab->ch > 0))
 		i = i - tab->ch;
 	i = ft_findsize3(tab, i);
