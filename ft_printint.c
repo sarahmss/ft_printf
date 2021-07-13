@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:26:48 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 12:18:15 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 18:40:44 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static int	ft_li_flags(t_format *tab, int i)
 	int	print;
 
 	prec = tab->precision;
-	if (((i == 0) && ((tab->pad_zero == 1) || (tab->precision > tab->in))))
+	if (((i == 0) && ((tab->pad_zero == 1) || (tab->precision > tab->in)
+		|| (tab->num == -1 && tab->precision >= 1))))
 		ft_padzero(tab);
 	if (i == 0)
 		return (1);
