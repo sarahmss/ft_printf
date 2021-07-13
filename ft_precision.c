@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 09:24:29 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 18:38:59 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 18:55:36 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static int	ft_sup(char *stemp)
 	int		i;
 
 	i = 0;
+	ft_bzero(width, 10);
 	while (ft_isdigit(*stemp) || *stemp == '.' || *stemp == '-')
 	{
 		if (ft_isdigit(*stemp))

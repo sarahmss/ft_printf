@@ -6,17 +6,17 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 17:34:34 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/12 13:43:28 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 19:10:19 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(long n, int fd)
 {
 	int	printed;
 
-	printed = ft_intlen((long)n);
+	printed = ft_intlen(n);
 	if (n == -2147483648)
 		printed = write(fd, "-2147483648", 11);
 	else if (n < 0)
