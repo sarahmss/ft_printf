@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:23:45 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 10:42:45 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 10:47:07 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_printhex(char *temp, t_format *tab)
 		if ((*stemp == '0') && (tab->precision == -1))
 			i = 1;
 		else if (*temp == 'p')
-			tab->printed += ft_putstr_fd("0x", 1);
+			tab->printed += ft_printf("0x%s", stemp);
 		else if(stemp)
 			tab->printed += ft_putstr_fd(stemp, 1);
 	}
@@ -72,7 +72,7 @@ void	ft_printhex(char *temp, t_format *tab)
 		if ((*stemp == '0') && (tab->precision == -1))
 			i = 1;
 		else if (*temp == 'p')
-			tab->printed += ft_putstr_fd("0x", 1);
+			tab->printed += ft_printf("0x%s", stemp);
 		else if (stemp)
 			tab->printed += ft_putstr_fd(stemp, 1);
 		if (i == 1)
