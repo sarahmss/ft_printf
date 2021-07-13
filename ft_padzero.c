@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 18:02:01 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 18:54:14 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 19:52:17 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	checkint(t_format *tab, int i, char *stemp)
 {
 	if (tab->num < 0)
-			tab->printed += ft_putchar_fd('-', 1);
+		tab->printed += ft_putchar_fd('-', 1);
 	if ((tab->precision > 0) && (tab->num >= 0))
 		i = tab->precision - tab->in;
 	else if ((tab->precision > 0) && (tab->num < 0))
@@ -28,7 +28,7 @@ static int	checkint(t_format *tab, int i, char *stemp)
 static int	checkhex(t_format *tab, int i, char *stemp)
 {
 	if (tab->num < 0)
-			tab->printed += ft_putchar_fd('-', 1);
+		tab->printed += ft_putchar_fd('-', 1);
 	if ((tab->precision > 0) && (tab->num >= 0))
 		i = tab->precision - tab->hex;
 	else if ((tab->precision > 0) && (tab->num < 0))

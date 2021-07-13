@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:23:45 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 12:18:00 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 19:52:02 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ static int	ft_lhex_flags(t_format *tab, int i)
 	return (0);
 }
 
-static char	*ft_sup(char *temp, t_format *tab)
+static char	*ft_catstr(char *temp, t_format *tab)
 {
 	char	*stemp;
 
 	stemp = NULL;
 	if ((tab->precision) || (tab->l_just))
-			tab->pad_zero = 0;
+		tab->pad_zero = 0;
 	tab->num = va_arg(tab->args, unsigned int);
 	if (*temp == 'X')
 		stemp = ft_itoa_bases(tab->num, 16, 'X');
@@ -46,7 +46,21 @@ static char	*ft_sup(char *temp, t_format *tab)
 	else if (*temp == 'p')
 		stemp = ft_itoa_bases(tab->num, 16, 'x');
 	tab->hex = ft_strlen(stemp);
+	if (*temp == 'p')
+		tab->hex += 2;
 	return (stemp);
+}
+
+static int	ft_without_left_just(char *temp, t_format *tab, char *stemp, int i)
+{
+	ft_flags(tab);
+	if ((*stemp == '0') && (tab->precision == -1))
+		i = 1;
+	else if (*temp == 'p')
+		tab->printed += ft_printf("0x%s", stemp);
+	else if (stemp)
+		tab->printed += ft_putstr_fd(stemp, 1);
+	return (i);
 }
 
 void	ft_printhex(char *temp, t_format *tab)
@@ -55,19 +69,9 @@ void	ft_printhex(char *temp, t_format *tab)
 	int		i;
 
 	i = 0;
-	stemp = ft_sup(temp, tab);
-	if (*temp == 'p')
-		tab->hex += 2;
+	stemp = ft_catstr(temp, tab);
 	if (tab->l_just == 0)
-	{
-		ft_flags(tab);
-		if ((*stemp == '0') && (tab->precision == -1))
-			i = 1;
-		else if (*temp == 'p')
-			tab->printed += ft_printf("0x%s", stemp);
-		else if (stemp)
-			tab->printed += ft_putstr_fd(stemp, 1);
-	}
+		i = ft_without_left_just(temp, tab, stemp, i);
 	if (tab->l_just == 1)
 	{
 		i = ft_lhex_flags(tab, i);
