@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 17:03:47 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 18:39:28 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/13 20:50:05 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@
 
 typedef struct s_format
 {
-	va_list		args;
-	char		*temp;
-	int			width;
-	int			precision;
-	int			l_just;
-	int			pad_zero;
-	int			width_prm[2];
-	int			printed;
-	int			str;
-	int			ch;
-	int			in;
-	int			hex;
-	long int	num;
+	va_list			args;
+	char			*temp;
+	int				width;
+	int				precision;
+	int				l_just;
+	int				pad_zero;
+	int				width_prm[2];
+	int				printed;
+	int				str;
+	int				ch;
+	int				in;
+	int				hex;
+	long long int	num;
 }			t_format;
 
 int			ft_printf(const char *format, ...);
