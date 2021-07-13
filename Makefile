@@ -29,6 +29,8 @@ LIBFT_OBJS = $(LIBFT_DIR)*.o
 
 all:		fclean $(NAME)
 
+bonus:		all
+
 $(NAME):	$(OBJ)
 			@make -C $(LIBFT_DIR)
 			@$(CC) $(C_FLAGS) $(SRCS)
