@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 13:41:53 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/14 21:49:37 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/15 09:36:01 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,10 @@ static int	ft_eval_sup(char *temp, t_format *tab)
 	if (*temp == 's')
 		ft_printstr(tab);
 	if (*temp == 'c')
-		ft_printchar(tab);
+		ft_printchar(tab, temp);
 	if (*temp == '%')
-		tab->printed += ft_putchar_fd('%', 1);
-	if ((*temp == 'i') || (*temp == 'd'))
-		ft_printint(temp, tab);
-	if (*temp == 'u')
+		ft_printchar(tab, temp);
+	if ((*temp == 'i') || (*temp == 'd') || (*temp == 'u'))
 		ft_printint(temp, tab);
 	if ((*temp == 'p') || (*temp == 'X') || (*temp == 'x'))
 		ft_printhex(temp, tab);

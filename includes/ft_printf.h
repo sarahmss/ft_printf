@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 17:03:47 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 20:50:05 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/15 09:35:54 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int			ft_format(char *temp, t_format *tab);
 
 void		ft_printstr(t_format *tab);
 
-void		ft_printchar(t_format *tab);
+void		ft_printchar(t_format *tab, char *temp);
 
 int			ft_printint(char *temp, t_format *tab);
 
