@@ -6,7 +6,7 @@
 /*   By: smodesto <smodesto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:23:45 by smodesto          #+#    #+#             */
-/*   Updated: 2021/07/13 20:32:04 by smodesto         ###   ########.fr       */
+/*   Updated: 2021/07/15 10:42:42 by smodesto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,27 @@ static int	ft_lhex_flags(t_format *tab, int i)
 
 static char	*ft_catstr(char *temp, t_format *tab)
 {
-	char	*stemp;
+	char					*stemp;
 
 	stemp = NULL;
 	if ((tab->precision) || (tab->l_just))
 		tab->pad_zero = 0;
 	if (*temp == 'p')
-		tab->num = va_arg(tab->args, unsigned long int);
+	{
+		tab->nump = va_arg(tab->args, unsigned long int);
+		tab->hex += 2;
+	}
 	else
 		tab->num = va_arg(tab->args, unsigned int);
 	if (*temp == 'X')
 		stemp = ft_itoa_bases(tab->num, 16, 'X');
 	else if (*temp == 'x')
 		stemp = ft_itoa_bases(tab->num, 16, 'x');
+	else if (tab->nump == ULLONG_MAX)
+		stemp = ft_strdup("ffffffffffffffff");
 	else if (*temp == 'p')
-		stemp = ft_itoa_bases(tab->num, 16, 'x');
-	tab->hex = ft_strlen(stemp);
-	if (*temp == 'p')
-		tab->hex += 2;
+		stemp = ft_itoa_bases(tab->nump, 16, 'x');
+	tab->hex += ft_strlen(stemp);
 	return (stemp);
 }
 
