@@ -27,11 +27,11 @@ C_FLAGS = -c -g -Wall -Werror -Wextra
 
 LIBFT_OBJS = $(LIBFT_DIR)*.o
 
-all:		fclean $(NAME)
+all:		$(NAME)
 
 bonus:		all
 
-$(NAME):	$(OBJ)
+$(NAME):	$(SRCS_OBJS)
 			@make -C $(LIBFT_DIR)
 			@$(CC) $(C_FLAGS) $(SRCS)
 			@ar -rcs $(NAME) $(SRCS_OBJS) $(LIBFT_OBJS)
