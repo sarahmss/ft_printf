@@ -22,8 +22,8 @@ SRCS =	ft_printf.c				\
 SRCS_OBJS = $(SRCS:.c=.o)
 
 CC = gcc
-#retirar o g
-C_FLAGS = -c -g -Wall -Werror -Wextra
+
+C_FLAGS = -c -Wall -Werror -Wextra
 
 LIBFT_OBJS = $(LIBFT_DIR)*.o
 
